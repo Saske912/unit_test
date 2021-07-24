@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define RESET   "\x1b[0m"
@@ -223,6 +224,17 @@ int		main()
 	free(abuffer);
 	free(abuffer2);
 #endif
+	int val = fork();
+	if (!val)
+	{
+		char *av[2];
+		av[0] = strdup("code_me.sh");
+		execve(av[0], av, NULL);
+	}
+	else
+	{
+		waitpid(val, NULL, 0);
+	}
 #if STRNCAT
 	printf("STRNCAT\n");
 	char dest2[20] = "123";
