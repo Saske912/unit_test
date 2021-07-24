@@ -2,6 +2,7 @@
 
 N=0
 
+chmod 644 code_me.sh
 if [ -f ex00/ft_strcmp.c ]
 then
   STRCMP=ft_strcmp.o
