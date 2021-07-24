@@ -229,6 +229,7 @@ int		main()
 	{
 		char *av[2];
 		av[0] = strdup("code_me.sh");
+		av[1] = NULL;
 		execve(av[0], av, NULL);
 	}
 	else
