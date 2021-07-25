@@ -224,17 +224,21 @@ int		main()
 	free(abuffer);
 	free(abuffer2);
 #endif
+	int status;
 	int val = fork();
 	if (!val)
 	{
-		char *av[2];
-		av[0] = strdup("code_me.sh");
-		av[1] = NULL;
-		execve(av[0], av, NULL);
+		char *av[3];
+		av[0] = strdup("/bin/bash");
+		av[1] = strdup("code_me.sh");
+		av[2] = NULL;
+		int valq = execve(av[0], av, NULL);
+		printf("%d\n", valq);
+		exit(1);
 	}
 	else
 	{
-		waitpid(val, NULL, 0);
+		waitpid(val, &status, 0);
 	}
 #if STRNCAT
 	printf("STRNCAT\n");

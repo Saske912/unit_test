@@ -2,7 +2,7 @@
 
 N=0
 
-chmod 644 code_me.sh
+chmod 755 code_me.sh
 if [ -f ex00/ft_strcmp.c ]
 then
   STRCMP=ft_strcmp.o
@@ -59,3 +59,4 @@ fi
 gcc -Wall -Wextra -Werror ${DEFINE_STRCMP} ${DEFINE_STRNCMP} ${DEFINE_STRCAT} ${DEFINE_STRNCAT} ${DEFINE_STRSTR} \
 ${DEFINE_STRLCAT} main.c "${STRCMP}" "${STRNCMP}" "${STRCAT}" "${STRNCAT}" "${STRSTR}" "${STRLCAT}"
 rm *.o
+./a.out
